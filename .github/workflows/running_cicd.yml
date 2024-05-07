@@ -23,4 +23,6 @@ jobs:
 
       - name: Send report to slack
         run: pytest setting/notif_slack.py
+        env:
+          PYTEST_WEBHOOK_SLACK: ${{ secrets.WEBHOOK_SLACK }}
 
