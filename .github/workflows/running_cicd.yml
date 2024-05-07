@@ -1,0 +1,23 @@
+name: Pytest Automation Run
+
+on: [ push ]
+
+jobs:
+  run_api_automation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run:
+          python -m pip install --upgrade pip
+          pip install -r Requirements.txt
+
+
+      - name: Run test with pytest
+        run: pytest test -v
+
